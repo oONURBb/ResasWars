@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="mystyle.css"/>
     
     <script>
-      
+         
         function reset(){
             document.getElementById(1).style.backgroundColor = "white";
             document.getElementById(2).style.backgroundColor = "white";
@@ -118,10 +118,6 @@
         echo "</li>";
     }
 ?>
-                    <!--<li value="0"><div id="sofa" class="buybutton" onclick="buyItem(this, 10)">Comprar Sofa<p>10$</p></div><img alt="sofa" src="Images/sofa.jpg"></li>
-                    <li value="0"><div id="tv" class="buybutton" onclick="buyItem(this, 25)">Comprar TV<p id="price">10$</p></div><img alt="TV" src="Images/tv.jpg"></li>
-                    <li value="0"><div id="chair" class="buybutton" onclick="buyItem(this, 50)">Comprar Chair<p id="price">10$</p></div><img alt="TV" src="Images/cadeiraEscritorio.jpg"></li>
-                    <li value="0"><div class="buybutton">Comprar Xadrex<p id="price">10$</p></div></li>-->
                 </ul>
             </div>
             
@@ -130,7 +126,7 @@
             </div>
         </div>
         
-        <div class='footer'><button onclick="javascript:window.open('battle.php','Windows','width=650,height=350,toolbar=no,menubar=no,scrollbars=yes,resizable=no,location=no,directories=no,status=no');return false")">Battle</button></div>
+        <div class='footer'><button onclick="javascript:window.open('UsersList.php','Windows','min-width=650,min-height=350,toolbar=no,menubar=no,scrollbars=no,resizable=0,location=no,directories=no,status=no,dialog=yes');return false")">Battle</button></div>
     </div>
 </body>
 </html>
