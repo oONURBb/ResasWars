@@ -6,8 +6,6 @@
       //  $userid = 1;    // userid = 1 para testar
         include "mydata.php"; //Variaveis ligação MySQL
         $itemid = $_GET["item"];
-        
-        include "conf/mydata.php"; // Variáveis da ligação MySQL
 
         $c = mysqli_connect($MySqlHost, $MySqlUser, $MySqlPwd);
         if (!$c)
