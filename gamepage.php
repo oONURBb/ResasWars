@@ -33,7 +33,7 @@
                xmlhttp = new XMLHttpRequest();
                xmlhttp.onreadystatechange = function(){
                   if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                            document.getElementById("game").style = xmlhttp.responseText;
+                     
                   }
                }
                xmlhttp.open("GET", "comprar.php?item=" + id_item, true);
@@ -74,7 +74,8 @@
             xmlhttp = new XMLHttpRequest();
                xmlhttp.onreadystatechange = function(){
                   if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                            document.getElementById("menu").innerHTML = xmlhttp.responseText;
+                     document.getElementById("menu").innerHTML = xmlhttp.responseText;
+                     refreshGame();
                   }
                }
                xmlhttp.open("GET", "functions.php");
@@ -118,10 +119,6 @@
         echo "</li>";
     }
 ?>
-                    <!--<li value="0"><div id="sofa" class="buybutton" onclick="buyItem(this, 10)">Comprar Sofa<p>10$</p></div><img alt="sofa" src="Images/sofa.jpg"></li>
-                    <li value="0"><div id="tv" class="buybutton" onclick="buyItem(this, 25)">Comprar TV<p id="price">10$</p></div><img alt="TV" src="Images/tv.jpg"></li>
-                    <li value="0"><div id="chair" class="buybutton" onclick="buyItem(this, 50)">Comprar Chair<p id="price">10$</p></div><img alt="TV" src="Images/cadeiraEscritorio.jpg"></li>
-                    <li value="0"><div class="buybutton">Comprar Xadrex<p id="price">10$</p></div></li>-->
                 </ul>
             </div>
             

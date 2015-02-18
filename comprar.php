@@ -33,10 +33,8 @@
                 mysqli_query($c, $query);
                 $pupgrade -= $pu_nextlvl/2;
                 $query = "UPDATE users SET pupgrade = $pupgrade WHERE cod_user = $userid";
-                echo "alert($pupgrade)";
                 mysqli_query($c, $query);
                 
-                include("gamerefresh.php");
         }
         if($num_count == 0){
 
