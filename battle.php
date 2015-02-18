@@ -42,18 +42,23 @@
         $res = mysqli_query($con, $query);
         while($row = mysqli_fetch_array($res)){
             $forca = $row['forca'];
+            $nivelUser = $row['nivel'];
             }
             
+        //echo $nivelUser;
         
         $query = "SELECT l.username, u.nivel, u.defesa FROM users u, login l WHERE l.cod_user = u.cod_user AND u.cod_user != $cod_user";
-        
         $res = mysqli_query($con, $query);
         
         while($row = mysqli_fetch_array($res)){
-            $nome = $row['username'];
             $nivel = $row['nivel'];
+            $nome = $row['username'];
             $defesa = $row['defesa'];
-            echo "<p>$nome - $nivel --> <a href='#' onclick='calcLuck($forca, $defesa);'>Lutar</a></p>";
+            if(($nivelUser >= $nivel - 5)  &&  ($nivelUser <= $nivel + 5))
+            {
+                echo "<p>$nome - $nivel --> <a href='#' onclick='calcLuck($forca, $defesa);'>Lutar</a></p>";
+            }
+            //echo $nivel;
         }
         
         

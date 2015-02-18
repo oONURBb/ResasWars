@@ -76,7 +76,7 @@
     <div id="wrapper">
         <div id="content">
             <div id="newContent">
-            <div>Money: <div id="money"></div><div id="stamina"></div></div>
+            <div>Money: <div id="money"></div><div id="stamina"></div><a href="logout.php">Log Out</a></div>
             
             <div class="menu">
                 <ul>

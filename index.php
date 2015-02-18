@@ -1,4 +1,6 @@
 <?php
+session_start();
+session_destroy();
 $username = "";
 $password = "";
 $error = "";
@@ -25,6 +27,7 @@ if($num_rows > 0){
 while($row = mysqli_fetch_array($result)){
     if(password_verify($password, $row['password'])){
 	$cod = $row['cod_user'];
+	$nivel = $row['nivel'];
         $exists = true;
     }
 }

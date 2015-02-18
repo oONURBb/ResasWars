@@ -37,20 +37,13 @@ if($password != $passwordRepeat)
 	//$_SESSION['login'] = "";
 	$error = "Username ou Email já existe!";
 }else{
+	session_start();
+	$_SESSION['login'] = $username;
+	$_SESSION['user_id'] = $cod;
+	header("Location: gamepage.php");
 	function base64_new_encode($input) {
 		return strtr(base64_encode($input), '+/=', '-_,');
 	}
-	//En(De)cryption/ key
-	//$key = pack("H*", "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3");
-	//
-	//$iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
-	//$iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
-	//
-	//$ciphertext = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $password, MCRYPT_MODE_CBC, $iv);
-	//
-	//$ciphertext = $iv . $ciphertext;
-	//
-	//$ciphertext_base64 = base64_encode($ciphertext);
 	$password = password_hash("$password", PASSWORD_DEFAULT);
 	//session_start();
 	//$_SESSION['login'] = $username;
