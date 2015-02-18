@@ -3,6 +3,29 @@
 <html>
 <head>
     <title>LET'S BATTLE</title>
+    <script>
+        function calcLuck(forca, defesaOp){
+            var luck = (forca * 50)/defesaOp;
+            if (luck > 80) {
+                luck = 80;
+            }
+                var x = Math.floor(Math.random() * 101);
+                if (x < luck) {
+                    xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function(){
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                            window.open("alert.php", "Windows", "width=650,height=350,toolbar=no,menubar=no,scrollbars=yes,resizable=no,location=no,directories=no,status=no");
+                        }
+                        xmlhttp.open("GET", "getItem.php");
+                        xmlhttp.send();
+                    }
+                    alert("Your attack was successfull");
+                    
+                }else{
+                    alert("Your attack failed");
+                }
+        }
+    </script>
 </head>
 
 <body>
@@ -16,14 +39,22 @@
             die("Erro ao ligar à BD: " . mysqli_errno ($con));
         }
         
-        $query = "SELECT l.username, u.nivel FROM users u, login l WHERE l.cod_user = u.cod_user AND u.cod_user != $cod_user";
+        $query = "SELECT * FROM users WHERE cod_user = $cod_user";
+        $res = mysqli_query($con, $query);
+        while($row = mysqli_fetch_array($res)){
+            $forca = $row['forca'];
+            }
+            
+        
+        $query = "SELECT l.username, u.nivel, u.defesa FROM users u, login l WHERE l.cod_user = u.cod_user AND u.cod_user != $cod_user";
         
         $res = mysqli_query($con, $query);
         
         while($row = mysqli_fetch_array($res)){
             $nome = $row['username'];
             $nivel = $row['nivel'];
-            echo "<p>$nome - $nivel --> <a href='#'>Lutar</a></p>";
+            $defesa = $row['defesa'];
+            echo "<p>$nome - $nivel --> <a href='#' onclick='calcLuck($forca, $defesa);window.close();return false;'>Lutar</a></p>";
         }
         
     ?>
