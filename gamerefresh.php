@@ -15,7 +15,6 @@
         $id = $row['item_id'];
         $nome = $row['nome'];
         $imagem = $row['imagem'];
-        
         if(strpos($frase, $nome) === false){
             $frase = $frase . "_" . $nome;
         }

@@ -33,7 +33,7 @@
                xmlhttp = new XMLHttpRequest();
                xmlhttp.onreadystatechange = function(){
                   if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                            document.getElementById("game").style = xmlhttp.responseText;
+                     
                   }
                }
                xmlhttp.open("GET", "comprar.php?item=" + id_item, true);
@@ -74,7 +74,8 @@
             xmlhttp = new XMLHttpRequest();
                xmlhttp.onreadystatechange = function(){
                   if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                            document.getElementById("menu").innerHTML = xmlhttp.responseText;
+                     document.getElementById("menu").innerHTML = xmlhttp.responseText;
+                     refreshGame();
                   }
                }
                xmlhttp.open("GET", "functions.php");
