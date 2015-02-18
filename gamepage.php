@@ -1,7 +1,8 @@
 <!DOCTYPE html>
  <?php
-    if($_SESSION["user_id"] === null)
-        header("Location: login.php");
+    if($_SESSION["user_id"] === null){
+        header("Location: index.php");
+    }
  ?>   
     
 <html>
@@ -172,7 +173,7 @@
         while($row = mysqli_fetch_array($res)){
             $defesaOP = $row['defesa'];
         }
-        echo "<div class='footer'><button onclick='calcLuck($forca, $defesaOP)'>Battle</button></div>";
+        echo "<div class='footer'><button onclick='javascript.window.open('battle.html','Windows','width=650,height=350,toolbar=no,menubar=no,scrollbars=yes,resizable=no,location=no,directories=no,status=no');return false')'>Battle</button></div>";
         ?>
     </div>
 </body>
