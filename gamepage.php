@@ -1,8 +1,9 @@
 <!DOCTYPE html>
  <?php
-    if($_SESSION["user_id"] === null){
+    session_start();
+    $userid = $_SESSION["user_id"];
+    if($_SESSION["user_id"] === null)
         header("Location: index.php");
-    }
  ?>   
     
 <html>
@@ -60,6 +61,12 @@
             return auxmoney
         }
         
+        var forca = 16;
+        var stamina = 100;
+        var estrategia = 10;
+        var defesa = 10;
+        var defesaOp = 10;
+        
         function calcLuck(forca, defesaOp){
             var luck = (forca * 50)/defesaOp;
             if (luck > 80) {
@@ -96,8 +103,6 @@
             <div class="menu">
                 <ul>
 <?php
-    session_start();
-    $userid = $_SESSION["user_id"];
     include "mydata.php"; //Variaveis ligação MySQL
     
     $con = mysqli_connect($MySqlHost, $MySqlUser, "", $MySqlSchema);
