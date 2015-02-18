@@ -1,0 +1,3 @@
+Quando ganhas uma batalha fazes a probabilidade de ganhar um item (50/50?), ganhas pontos de upgrade e tira stamina
+Pode-se limitar os players que aparecem para lutar entre +5 niveis e -5 niveis
+Meter na pagina os status do jogador (stamina, forca etc)
