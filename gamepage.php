@@ -27,27 +27,19 @@
             document.getElementById(id).style.backgroundColor = "#D3D3D3";
         }
         // funçao utilizada para comprar os items
-        function buyItem(element, cost){
-            
-            //Se o dinheiro existente for maior que 0 quando subtraido o custo ao dinheiro existente
-            if((money - cost) <= 0){
-                alert("You don't have the money to buy that.");
-                return;
+        function buyItem(pupgrade, cost, id_item){
+            if (cost > pupgrade) {
+               alert("Não tens pontos de upgrade suficientes para esta ação");
+            }else{
+               xmlhttp = new XMLHttpRequest();
+               xmlhttp.onreadystatechange = function(){
+                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                            document.getElementById("game").style = xmlhttp.responseText;
+                  }
+               }
+               xmlhttp.open("GET", "comprar.php?item=" + id_item, true);
+               xmlhttp.send();
             }
-            
-            //Verifica o id do elemento
-            if(element.id == "tv")
-            {
-                
-                //Muda o background do container
-                document.getElementById("game").style = "background-image: url(Images/rsz_quartop.png);";
-            }
-            
-            //Subtrai o custo ao dinheiro
-            money = money - cost;
-            updateMoneyString(money);
-            //Muda a border do item carregado no menu para red
-            element.style.border = "2px solid red";
         }
         
         //Muda o innerHTML para o valor passado ("money")
@@ -97,17 +89,22 @@
         die("Erro ao ligar á BD: " . mysqli_errno($con));
     }
     
-    $query = "SELECT nome, nivel, pu_nextlvl, item_id, imagem FROM itens, posses WHERE id_user = 17 AND id_item = item_id";
+    $query = "SELECT i.nome, i.item_id, i.imagem, p.nivel, p.pu_nextlvl, u.pupgrade FROM itens i, posses p, users u WHERE p.id_user = $userid AND u.cod_user = $userid AND i.item_id = p.id_item";
     $result = mysqli_query($con, $query);
     
     while($row = mysqli_fetch_array($result)){
         $id = $row['item_id'];
         $nome = $row['nome'];
         $imagem = $row['imagem'];
-        $pontos = $row['pu_nextlvl'];
+        $cost = $row['pu_nextlvl'];
+        $pontos = $row['pupgrade'];
         $nivel = $row['nivel'];
-        
-        echo "<li><a href='comprar.php?item=$id'><div class='buybutton'>$nome<p>$pontos Pontos. Lvl $nivel</p></div></a><img alt='$nome' src='Images/$imagem'/></li>";
+        echo "<li>";
+        echo "<a onclick='buyItem($pontos, $cost, $id);' href='#'>";
+        echo "<div class='buybutton'>$nome<p>$cost Pontos. Lvl $nivel</p></div>";
+        echo "</a>";
+        echo "<img alt='$nome' src='Images/$imagem'/>";
+        echo "</li>";
     }
 ?>
                     <!--<li value="0"><div id="sofa" class="buybutton" onclick="buyItem(this, 10)">Comprar Sofa<p>10$</p></div><img alt="sofa" src="Images/sofa.jpg"></li>
@@ -116,40 +113,8 @@
                     <li value="0"><div class="buybutton">Comprar Xadrex<p id="price">10$</p></div></li>-->
                 </ul>
             </div>
-            <?php
             
-            $query = "SELECT * FROM itens, posses WHERE item_id = id_item AND id_user = $userid order by nome";
-            $result = mysqli_query($con, $query);
-            $frase = "";
-            while($row = mysqli_fetch_array($result)){
-                $id = $row['item_id'];
-                $nome = $row['nome'];
-                $imagem = $row['imagem'];
-                
-                if(strpos($frase, $nome) === false){
-                    $frase = $frase . "_" . $nome;
-                }
-            }
-            
-            $frase = substr($frase, 1);
-            $frase = $frase . ".png";
-            
-            if($frase == ".png"){
-                    echo "<div style='float: left;" .
-                         "margin-top: 17px;" .
-                         "margin-left: 150px;".
-                         "height: 420px;".
-                         "width: 600px;" .
-                         "border-radius: 2px;" .
-                         "background-image: url(Images/quarto.png);".
-                         "background-size: 100% 100%;'></div>";
-            }else{
-                echo "<div style='float: left; margin-top: 17px;" .
-                "margin-left: 150px; height: 420px;width: 600px;" .
-                "border-radius: 2px; background-image: url(Images/$frase);" .
-                "background-size: 100% 100%;';></div>";
-            }
-            ?>
+            <div id="game"></div>
             <div class="clearfix"></div>
             </div>
         </div>
