@@ -67,20 +67,6 @@
         var defesa = 10;
         var defesaOp = 10;
         
-        function calcLuck(forca, defesaOp){
-            var luck = (forca * 50)/defesaOp;
-            if (luck > 80) {
-                luck = 80;
-            }
-                var x = Math.floor(Math.random() * 101);
-                if (x < luck) {
-                    alert("Your attack was successfull");
-                }else{
-                    alert("Your attack failed");
-                }
-                //alert(x);
-        }
-        
         function refreshStamina(stamina) {
             var x = stamina/10;
             for(i=0; i < x; i++){
@@ -167,19 +153,7 @@
             <div class="clearfix"></div>
             </div>
         </div>
-        <?php
-        $query = "SELECT * FROM users WHERE cod_user = $userid";
-        $res = mysqli_query($con, $query);
-        while($row = mysqli_fetch_array($res)){
-            $forca = $row['forca'];
-            }
-        $query = 'SELECT * FROM users WHERE cod_user = 0';
-        $res = mysqli_query($con, $query);
-        while($row = mysqli_fetch_array($res)){
-            $defesaOP = $row['defesa'];
-        }
-        echo "";
-        ?>
+        
         <div class='footer'><button onclick="javascript:window.open('battle.php','Windows','width=650,height=350,toolbar=no,menubar=no,scrollbars=yes,resizable=no,location=no,directories=no,status=no');return false")">Battle</button></div>
     </div>
 </body>
