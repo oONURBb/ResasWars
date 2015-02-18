@@ -14,14 +14,13 @@
                     xmlhttp = new XMLHttpRequest();
                     xmlhttp.onreadystatechange = function(){
                         if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                            window.open("alert.php", "Windows", "width=650,height=350,toolbar=no,menubar=no,scrollbars=yes,resizable=no,location=no,directories=no,status=no");
+                            document.getElementById("popBox").innerHTML = xmlhttp.responseText;
                         }
-                        xmlhttp.open("GET", "getItem.php");
+                    }
+                        xmlhttp.open("GET", "getItem.php", true);
                         xmlhttp.send();
                     }
-                    alert("Your attack was successfull");
-                    
-                }else{
+                    else{
                     alert("Your attack failed");
                 }
         }
@@ -54,11 +53,12 @@
             $nome = $row['username'];
             $nivel = $row['nivel'];
             $defesa = $row['defesa'];
-            echo "<p>$nome - $nivel --> <a href='#' onclick='calcLuck($forca, $defesa);window.close();return false;'>Lutar</a></p>";
+            echo "<p>$nome - $nivel --> <a href='#' onclick='calcLuck($forca, $defesa);'>Lutar</a></p>";
         }
         
+        
     ?>
-
+<div id="popBox">test</div>
 
 </body>
 </html>
