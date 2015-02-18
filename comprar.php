@@ -21,7 +21,7 @@
         
         $num_count = mysqli_num_rows($res);
         if($num_count > 0){
-                $query = "SELECT * FROM posses p, users u WHERE $userid = p.id_user AND $itemid = id_item AND $userid = u.cod_user";
+                $query = "SELECT p.nivel, p.pu_nextlvl, u.pupgrade FROM posses p, users u WHERE $userid = p.id_user AND $itemid = id_item AND $userid = u.cod_user";
                 $res = mysqli_query($c, $query);
                 while($row = mysqli_fetch_array($res)){
                         $nivel = $row['nivel'] + 1;
@@ -32,7 +32,8 @@
                 $query = "UPDATE posses SET nivel = $nivel, pu_nextlvl = $pu_nextlvl WHERE id_user = $userid AND id_item = $itemid";
                 mysqli_query($c, $query);
                 $pupgrade -= $pu_nextlvl/2;
-                $query = "UPDATE users SET pugrade = $pupgrade WHERE id_user = $userid";
+                $query = "UPDATE users SET pupgrade = $pupgrade WHERE cod_user = $userid";
+                echo "alert($pupgrade)";
                 mysqli_query($c, $query);
                 
                 $query = "SELECT * FROM itens, posses WHERE item_id = id_item AND id_user = $userid order by nome";
