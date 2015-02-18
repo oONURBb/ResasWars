@@ -1,0 +1,12 @@
++Layout de status do Jogador
++Possibilidade de calhar items no ataque
++Adicionar os stats na base de dados, para cada jogador.
++Adicionar os Bonus Referentes a cada item
++Adicionar os ganhos de XP e pontos de Upgrade por cada ataque
++Escolher o têma de cores.
++Adicionar niveis aos items bonus
+
+
+SELECT i.descricao, p.nivel, p.pontos
+FROM itens i, posses p, users u
+WHERE u.user_id == $_SESSION_User and u.user_id = p.user_id

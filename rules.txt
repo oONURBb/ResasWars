@@ -1,0 +1,25 @@
+Sofa
+Menos 5% de tempo de espera entre os ataques por cada nivel.
+Max: 5;
+
+Tabuleiro de Xaderez
+Aumenta o nivel de estratégia em 1%. Max: 25;
+A Estratégia serve para teres menos probabilidade de ser apanhado durante o assalto.
+
+TV
+Aumenta o valor de Stamina total em 10% por nivel
+Max: 5
+
+Maquina de Ginasio/Alteres/Qualquer coisa deste genero
+Aumenta a probabilidade de conseguires um item de nivel mais alto em 5% (Forca).
+Max: 5;
+
+Atributos
+Forca - funciona como o nivel de probabilidade de calhar um item mais alto.
+Stamina
+Estratégia - Quanto mais tiver, menos probabilidade de ser apanhado existe.
+Defesa - funciona como o "escudo" aos ataques.
+
+Pontos de Upgrade - Por cada item vêm X pontos.
+
+Ganhas XP por cada assalto dependendo do nivel de jogador e do item Roubado

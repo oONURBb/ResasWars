@@ -1,0 +1,26 @@
+1 ITEM 
+quarto + televisao
+quarto + sofa
+quarto + xadrex
+quarto + cadeira
+
+2 ITEMS
+quarto + televisao + cadeira
+quarto + sofa + cadeira
+quarto + xadrex + cadeira
+quarto + sofa + televisao
+quarto + xadrex + televisao
+quarto + televisao + sofa
+quarto + xadrex + sofa
+quarto + televisao + xadrex
+quarto + sofa + xadrex
+
+3 ITEMS
+quarto + cadeira + televisao + sofa 
+quarto + cadeira + televisao + xadrex 
+quarto + cadeira + sofa + televisao 
+quarto + cadeira + sofa + xadrex 
+quarto + televisao + sofa + xadrex
+
+4 ITEMS
+quarto	cadeira	televisao sofa xadrex 

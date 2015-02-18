@@ -1,0 +1,129 @@
+html, body{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    font-family: Segoe UI
+}
+.menu {
+    float: left;
+    margin-top: 17px;
+    /*padding-left: 20px;
+    padding-right: 20px;*/
+    padding-top: 20px;
+    border: 3px solid #D9D9D9;
+    border-radius: 2px;
+    height: 400px;
+    width: 320px;
+    overflow: auto;
+}
+
+.menu ul li {
+    margin: 0px 20px 16px 20px;
+    padding: 5px 5px 5px 5px;
+    height: 71px;
+    border: 1px solid black;
+}
+
+.menu ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.menu ul li img {
+    float: right;
+    height: 100%;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.footer {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 175px;
+    background: #D9D9D9;
+    overflow: auto;
+}
+
+#wrapper {
+    min-height:100%;
+    position:relative;
+}
+
+#newContent{
+    margin-left: 17px;
+}
+
+#content {
+    padding-bottom: 175px;
+    width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buybutton p {
+    margin: 0;
+    text-align:center;
+}
+
+.buybutton {
+    float: left;
+    text-align: center;
+    height: 59px;
+    width: 90px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#game {
+    float: left;
+    border: 1px solid black;
+    margin-top: 17px;
+    margin-left: 150px;
+    height: 420px;
+    width: 600px;
+    /*border: 3px solid #D9D9D9;*/
+    border-radius: 2px;
+    background-image: url('Images/rsz_1quarto.png');
+    background-size: 100% 100%;
+}
+
+#stamina {
+    border: 1px solid black;
+    height: 15px;
+}
+
+.stamina{
+    border: 1px solid #FAEA05;
+    width: 20px;
+    background-color: #FFFAB5;
+    
+}
+
+#tvContainer {
+    height: 71px;
+    width: 73px;
+    margin-left: 30%;
+    margin-top: 20px;
+    background-size: contain;
+}
+
+/*.game table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.game table tr td {
+    width: 100px;
+    height: 100px;
+}*/
+
+
+.itemimage {
+    height: 69px;
+}
