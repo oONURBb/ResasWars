@@ -44,5 +44,6 @@
             die ("Erro a inserir " . mysqli_error($c));
         }
         }
+        mysqli_close($con);
         header("Location: gamepage.php");
 ?>
