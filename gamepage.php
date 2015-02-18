@@ -11,9 +11,8 @@
     <title>Gamepage</title>
     <link rel="stylesheet" href="mystyle.css"/>
     
-    <script>   
-        var money = 190;
-        var mPerSec = 1;
+    <script>
+      
         function reset(){
             document.getElementById(1).style.backgroundColor = "white";
             document.getElementById(2).style.backgroundColor = "white";
@@ -53,12 +52,6 @@
             return auxmoney
         }
         
-        var forca = 16;
-        var stamina = 100;
-        var estrategia = 10;
-        var defesa = 10;
-        var defesaOp = 10;
-        
         function refreshStamina(stamina) {
             var x = stamina/10;
             for(i=0; i < x; i++){
@@ -66,12 +59,30 @@
             }
         }
         
-        setInterval(function(){
-            money = addMoney(money, mPerSec);
-        }, 1000);
+        function refreshGame(){
+            xmlhttp = new XMLHttpRequest();
+               xmlhttp.onreadystatechange = function(){
+                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                            document.getElementById("game").style = xmlhttp.responseText;
+                  }
+               }
+               xmlhttp.open("GET", "gamerefresh.php");
+               xmlhttp.send();
+        }
+        
+        function refreshList(){
+            xmlhttp = new XMLHttpRequest();
+               xmlhttp.onreadystatechange = function(){
+                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                            document.getElementById("menu").innerHTML = xmlhttp.responseText;
+                  }
+               }
+               xmlhttp.open("GET", "functions.php");
+               xmlhttp.send();
+        }
     </script>
 </head>
-<body>
+<body onload=refreshGame()>
     
     <div id="wrapper">
         <div id="content">
@@ -79,7 +90,7 @@
             <div>Money: <div id="money"></div><div id="stamina"></div><a href="logout.php">Log Out</a></div>
             
             <div class="menu">
-                <ul>
+                <ul id="menu">
 <?php
     include "mydata.php"; //Variaveis ligação MySQL
     
@@ -100,7 +111,7 @@
         $pontos = $row['pupgrade'];
         $nivel = $row['nivel'];
         echo "<li>";
-        echo "<a onclick='buyItem($pontos, $cost, $id);' href='#'>";
+        echo "<a onclick='buyItem($pontos, $cost, $id); refreshList();' href='#'>";
         echo "<div class='buybutton'>$nome<p>$cost Pontos. Lvl $nivel</p></div>";
         echo "</a>";
         echo "<img alt='$nome' src='Images/$imagem'/>";
